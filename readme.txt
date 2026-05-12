@@ -5,7 +5,6 @@
     git init
     git add .
     git commit -m "Quiz 5 - NIM"
-    git remote add origin https://github.com/Juann-E/Tugas-Quiz-5.git
     
 5. bikin branch masing masing 672022056-juannito (contoh)
     git checkout -b NIM-NAMA
