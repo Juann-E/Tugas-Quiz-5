@@ -1,46 +1,77 @@
 <!DOCTYPE html>
-<html lang="id">
+<html class="light" lang="en">
 <head>
-    <title>Bayar Pinjaman</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Bayar Pinjaman - CapitalTrust</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <style>
+        body { background-color: #F8FAFC; font-family: 'Manrope', sans-serif; }
+        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(226, 232, 240, 0.8); }
+        select { appearance: none; background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2364748b' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e"); background-repeat: no-repeat; background-position: right 1rem center; background-size: 1.5em 1.5em; }
+    </style>
 </head>
-<body class="bg-light">
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card shadow-sm border-info">
-                    <div class="card-header bg-white fw-bold text-info">Bayar Pinjaman</div>
-                    <div class="card-body">
-                        @if ($errors->any())
-                            <div class="alert alert-danger py-2 small">{{ $errors->first() }}</div>
-                        @endif
+<body class="flex items-center justify-center min-h-screen p-4">
 
-                        <p class="text-secondary small mb-3">Saldo Anda: <strong class="text-dark">Rp {{ number_format($user->saldo, 0, ',', '.') }}</strong></p>
-                        
-                        <form action="{{ route('bayar') }}" method="POST">
-                            @csrf
-                            <div class="mb-3">
-                                <label class="form-label text-secondary small">Pilih Pinjaman yang Ingin Dibayar</label>
-                                <select name="loan_id" class="form-select" required>
-                                    <option value="">-- Pilih Daftar Pinjaman --</option>
-                                    @foreach($loans as $loan)
-                                        <option value="{{ $loan->id }}">
-                                            Pinjaman {{ $loan->created_at->format('d/m/Y') }} - Sisa Tagihan: Rp {{ number_format($loan->sisa_pinjaman, 0, ',', '.') }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label text-secondary small">Nominal Pembayaran (Rp)</label>
-                                <input type="number" name="nominal" class="form-control" placeholder="Masukkan jumlah bayar" required>
-                            </div>
-                            <button type="submit" class="btn btn-info text-dark fw-bold w-100 mb-2">Proses Pembayaran</button>
-                            <a href="{{ route('dashboard') }}" class="btn btn-secondary w-100">Batal / Kembali</a>
-                        </form>
+    <div class="w-full max-w-md">
+        <div class="text-center mb-8">
+            <div class="w-16 h-16 bg-sky-100 text-sky-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm">
+                <span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">payments</span>
+            </div>
+            <h1 class="text-2xl font-extrabold text-slate-900">Bayar Pinjaman</h1>
+            <p class="text-slate-500 text-sm mt-1">Lunasi tagihanmu, tenangkan pikiranmu</p>
+        </div>
+
+        <div class="glass-card rounded-3xl p-8 shadow-xl">
+            @if ($errors->any())
+            <div class="mb-6 p-4 bg-red-50 border border-red-100 text-red-600 rounded-xl text-sm font-bold">
+                @foreach ($errors->all() as $error)
+                    <p>{{ $error }}</p>
+                @endforeach
+            </div>
+            @endif
+
+            <form action="{{ route('bayar') }}" method="POST">
+                @csrf
+                
+                <div class="mb-6">
+                    <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2 px-1">Pilih Tagihan</label>
+                    <select name="loan_id" class="w-full px-4 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-4 focus:ring-sky-500/10 focus:border-sky-500 transition-all outline-none font-bold text-slate-700 shadow-sm" required>
+                        <option value="" disabled selected>-- Pilih Pinjaman Aktif --</option>
+                        @foreach($loans as $loan)
+                            <option value="{{ $loan->id }}">
+                                ID #{{ $loan->id }} - Sisa: Rp {{ number_format($loan->sisa_pinjaman, 0, ',', '.') }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="mb-8">
+                    <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2 px-1">Nominal Pembayaran (Rp)</label>
+                    <div class="relative">
+                        <span class="absolute left-4 top-1/2 -translate-y-1/2 font-bold text-slate-400">Rp</span>
+                        <input type="number" name="nominal" 
+                            class="w-full pl-12 pr-4 py-4 bg-white border border-slate-200 rounded-2xl focus:ring-4 focus:ring-sky-500/10 focus:border-sky-500 transition-all outline-none font-bold text-lg text-slate-800" 
+                            placeholder="Masukkan jumlah" required>
                     </div>
                 </div>
-            </div>
+
+                <div class="space-y-3">
+                    <button type="submit" class="w-full py-4 bg-sky-500 hover:bg-sky-600 text-white rounded-2xl font-bold shadow-lg shadow-sky-200 transition-all active:scale-95">
+                        Bayar Sekarang
+                    </button>
+                    <a href="{{ route('dashboard') }}" class="w-full py-4 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-2xl font-bold flex items-center justify-center transition-all">
+                        Batal
+                    </a>
+                </div>
+            </form>
         </div>
+
+        <p class="text-center text-slate-400 text-[10px] font-bold uppercase tracking-[0.2em] mt-8">Pemrogramman Berorientasi Objek
+        </p>
     </div>
+
 </body>
 </html>
