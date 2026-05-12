@@ -1,0 +1,19 @@
+1. buatlah web aplikasi untuk simpan, pinjammtabungn dan bayar pinjaman 
+2. tiap pinjaman bisa di bayar masing masing. 
+Contoh: si A pinjam 60.000 dan pinjam 80.000, si a bisa memilih melunasi 60.000 
+nya dulu atau 80.000 nya dulu
+
+alur kerja
+
+halaman login 
+Halaman registrasi
+
+Dashboard
+
+Tabung uang
+
+Ambil uang
+
+Bayar uang
+
+Pinjam uang
