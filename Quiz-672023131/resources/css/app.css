@@ -1,0 +1,321 @@
+/* ===== UI SIMPAN PINJAM KEREN ===== */
+
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.auth-blue {
+    background: linear-gradient(135deg, #2563eb, #06b6d4, #22c55e);
+}
+
+.auth-purple {
+    background: linear-gradient(135deg, #7c3aed, #ec4899, #f97316);
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 420px;
+    background: rgba(255, 255, 255, 0.92);
+    padding: 35px;
+    border-radius: 25px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+    text-align: center;
+}
+
+.auth-card h1 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.auth-card input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 14px;
+    border: 1px solid #ddd;
+    border-radius: 14px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.auth-card input:focus {
+    border-color: #2563eb;
+    transform: scale(1.03);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+}
+
+.auth-card button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
+    color: white;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.auth-card button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(37, 99, 235, 0.4);
+}
+
+.bottom-text {
+    margin-top: 18px;
+    font-size: 14px;
+}
+
+.bottom-text a {
+    color: #2563eb;
+    font-weight: 800;
+}
+
+.dashboard-page {
+    min-height: 100vh;
+    padding: 30px;
+    background: linear-gradient(135deg, #eef2ff, #f8fafc);
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.dashboard-header h1 {
+    font-size: 34px;
+    font-weight: 900;
+}
+
+.dashboard-header p {
+    color: #64748b;
+}
+
+.logout-btn {
+    background: #ef4444;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.logout-btn:hover {
+    transform: scale(1.05);
+    background: #dc2626;
+}
+
+.saldo-card {
+    background: linear-gradient(135deg, #16a34a, #22c55e);
+    color: white;
+    padding: 30px;
+    border-radius: 28px;
+    box-shadow: 0 20px 45px rgba(34, 197, 94, 0.35);
+    margin-bottom: 30px;
+    transition: 0.3s;
+}
+
+.saldo-card:hover {
+    transform: translateY(-6px);
+}
+
+.saldo-card p {
+    font-size: 18px;
+}
+
+.saldo-card h2 {
+    font-size: 42px;
+    font-weight: 900;
+}
+
+.action-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.action-card {
+    background: white;
+    padding: 25px;
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.action-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 45px rgba(0,0,0,0.14);
+}
+
+.action-card h3 {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 14px;
+}
+
+.icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+
+.icon.blue {
+    background: #dbeafe;
+}
+
+.icon.red {
+    background: #fee2e2;
+}
+
+.icon.green {
+    background: #dcfce7;
+}
+
+.action-card input,
+.pay-form input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ddd;
+    border-radius: 14px;
+    margin-bottom: 12px;
+}
+
+.btn,
+.pay-form button {
+    width: 100%;
+    padding: 13px;
+    color: white;
+    border-radius: 14px;
+    font-weight: 800;
+    transition: 0.3s;
+}
+
+.btn:hover,
+.pay-form button:hover {
+    transform: scale(1.04);
+}
+
+.blue-btn {
+    background: #2563eb;
+}
+
+.red-btn {
+    background: #ef4444;
+}
+
+.green-btn {
+    background: #16a34a;
+}
+
+.loan-section {
+    margin-top: 35px;
+}
+
+.loan-section h2 {
+    font-size: 26px;
+    font-weight: 900;
+    margin-bottom: 18px;
+}
+
+.loan-card {
+    background: white;
+    padding: 22px;
+    border-radius: 22px;
+    margin-bottom: 15px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 20px;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.loan-card:hover {
+    transform: scale(1.02);
+}
+
+.loan-card p {
+    color: #64748b;
+}
+
+.loan-card h3 {
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.debt {
+    color: #ef4444;
+}
+
+.pay-form button {
+    background: #f59e0b;
+}
+
+.empty-card {
+    background: white;
+    padding: 25px;
+    border-radius: 22px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    color: #16a34a;
+    font-weight: 800;
+}
+
+.alert {
+    padding: 14px;
+    border-radius: 14px;
+    color: white;
+    margin-bottom: 18px;
+    font-weight: 700;
+}
+
+.alert.error {
+    background: #ef4444;
+}
+
+.alert.success {
+    background: #22c55e;
+}
+
+@keyframes up {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-up {
+    animation: up 0.7s ease both;
+}
+
+@media (max-width: 900px) {
+    .action-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .loan-card {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+}
