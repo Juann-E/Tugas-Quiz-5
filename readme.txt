@@ -10,7 +10,7 @@
 5. bikin branch masing masing 672022056-juannito (contoh)
     git checkout -b NIM-NAMA
 
-6. git push origin 672022056-tester
+6. git push origin NIM-NAMA
 
 
 =================================
